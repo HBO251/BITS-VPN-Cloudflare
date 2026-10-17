@@ -18,11 +18,8 @@ const app = new Hono<{ Bindings: Env }>();
 app.route('/api', createApiRoutes());
 
 // Serve static assets for frontend pages
-const serveAsset = (filename: string) => async (c: any) => {
-  const assetUrl = new URL(c.req.url);
-  assetUrl.pathname = `/${filename}`;
-  return c.env.ASSETS.fetch(new Request(assetUrl.toString()));
-};
+const serveAsset = (filename: string) => async (c: any) =>
+  c.env.ASSETS.fetch(new Request(`https://assets.local/${filename}`));
 
 app.get('/', serveAsset('index.html'));
 app.get('/build', serveAsset('build.html'));
