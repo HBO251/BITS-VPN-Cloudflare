@@ -28,10 +28,8 @@
     { "pattern": "${WC_DOMAIN}", "custom_domain": true }
   ],
 
-  "unsafe": {
-    "metadata": {
-      "observability": { "enabled": true }
-    }
-  },
-  "observability": { "logs": { "enabled": true } }
+  "observability": {
+    "enabled": true,
+    "logs": { "enabled": true }
+  }
 }
